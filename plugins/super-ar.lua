@@ -5,7 +5,7 @@
      | |\__ \ | | |/ ___ \|   <| |___    Dev @Aram_omar22
      |_||___/_| |_/_/   \_\_|\_\_____|   Dev @IXX_I_XXI
               CH > @lTSHAKEl_CH
-سوبر الزعيم 
+
 تعديل المطورين الفووك :)
 --]]
 local function check_member_super(cb_extra, success, result)
@@ -70,7 +70,7 @@ local function check_member_superrem(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-      local text = 'تــم ❌ تعطيــل هــذه الــمــجــمــوعــة 👥\n'..msg.to.title
+      local text = 'تم تعطيل البوت ✅ في مجموعة :'..msg.to.title
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
