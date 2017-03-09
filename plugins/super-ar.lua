@@ -5,7 +5,7 @@
      | |\__ \ | | |/ ___ \|   <| |___    Dev @Aram_omar22
      |_||___/_| |_/_/   \_\_|\_\_____|   Dev @IXX_I_XXI
               CH > @lTSHAKEl_CH
-
+سوبر الزعيم 
 تعديل المطورين الفووك :)
 --]]
 local function check_member_super(cb_extra, success, result)
@@ -46,7 +46,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-   local text = 'تم تفعيل البوت ✅ في مجموعة :'..msg.to.title
+   local text = ' تم تفعيل البوت بنجاح✅ في مجموعة : '..msg.to.title
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -70,7 +70,7 @@ local function check_member_superrem(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-      local text = 'تم تعطيل البوت ✅ في مجموعة :'..msg.to.title
+      local text = ' تم تعطيل البوت بنجاح❎ في مجموعة : '..msg.to.title
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -186,11 +186,11 @@ local function lock_group_ads(msg, data, target)
   end
 local group_ads_lock = data[tostring(target)]['settings']['lock_ads']
   if group_ads_lock == 'yes' then
-    return '#الـروابـط بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الروابط مفعل مسبقا🔐 '
   else
     data[tostring(target)]['settings']['lock_ads'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـروابـط فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع الروابط🔐 '
   end
 end
 
@@ -200,11 +200,11 @@ local function unlock_group_ads(msg, data, target)
   end
   local group_ads_lock = data[tostring(target)]['settings']['lock_ads']
   if group_ads_lock == 'no' then
-    return '#الـروابـط بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الروابط غير مفعل🔓'
   else
     data[tostring(target)]['settings']['lock_ads'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـروابـط فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع الروابط🔓'
     end
 end
 --------------------------------
@@ -214,11 +214,11 @@ local function lock_group_spam(msg, data, target)
   end
   local group_spam_lock = data[tostring(target)]['settings']['lock_spam']
   if group_spam_lock == 'yes' then
-    return '#الـكـلـايـش بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'قفل الكلايش مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['lock_spam'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـكـلـايـش فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع الكلايش🔐'
     end
 end
 
@@ -228,11 +228,11 @@ local function unlock_group_spam(msg, data, target)
   end
   local group_spam_lock = data[tostring(target)]['settings']['lock_spam']
   if group_spam_lock == 'no' then
-    return '#الـكـلـايـش بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الكلايش غير مفعل🔓'
     else
     data[tostring(target)]['settings']['lock_spam'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـكـلـايـش فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع الكلايش🔓'
     end
 end
 ---------------------------------
@@ -242,11 +242,11 @@ local function lock_group_flood(msg, data, target)
   end
   local group_flood_lock = data[tostring(target)]['settings']['flood']
   if group_flood_lock == 'yes' then
-    return '#الـتـكـرار بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع التكرار مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['flood'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـتـكـرار فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع التكرار🔐'
     end
 end
 
@@ -256,11 +256,11 @@ local function unlock_group_flood(msg, data, target)
   end
   local group_flood_lock = data[tostring(target)]['settings']['flood']
   if group_flood_lock == 'no' then
-    return '#الـتـكـرار بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع التكرار غير مفعل🔓'
     else
     data[tostring(target)]['settings']['flood'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـتـكـرار فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع التكرار🔓'
     end
 end
 ---------------------------------
@@ -270,11 +270,11 @@ local function lock_group_arabic(msg, data, target)
   end
   local group_arabic_lock = data[tostring(target)]['settings']['lock_arabic']
   if group_arabic_lock == 'yes' then
-    return '#الـعـربـيـه بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع اللغه العربية مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['lock_arabic'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـعـربـيـه فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع اللغه العربية🔐'
     end
 end
 local function unlock_group_arabic(msg, data, target)
@@ -283,11 +283,11 @@ local function unlock_group_arabic(msg, data, target)
   end
   local group_arabic_lock = data[tostring(target)]['settings']['lock_arabic']
   if group_arabic_lock == 'no' then
-    return '#الـعـربـيـه بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع اللغه العربية غير مفعل🔓'
     else
     data[tostring(target)]['settings']['lock_arabic'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـعـربـيـه فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع اللغه العربية🔓'
     end
 end
 ------------------------------
@@ -297,11 +297,11 @@ local function lock_group_membermod(msg, data, target)
   end
   local group_member_lock = data[tostring(target)]['settings']['lock_member']
   if group_member_lock == 'yes' then
-    return '#الـاضـافـه بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\nالامر بواسطه |💡| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الاضافه مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['lock_member'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـاضـافـه فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع الاضافة🔐'
     end
 end
 
@@ -311,11 +311,11 @@ local function unlock_group_membermod(msg, data, target)
   end
   local group_member_lock = data[tostring(target)]['settings']['lock_member']
   if group_member_lock == 'no' then
-    return '#الـاضـافـه بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الاضافة غير مفعل🔓'
     else
     data[tostring(target)]['settings']['lock_member'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـاضـافـه فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع الاضافة🔓'
     end
 end
 ------------------------------
@@ -325,11 +325,11 @@ local function lock_group_rtl(msg, data, target)
   end
   local group_rtl_lock = data[tostring(target)]['settings']['lock_rtl']
   if group_rtl_lock == 'yes' then
-    return '#الـجـمـاعـيـه بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الجماعية مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['lock_rtl'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـجـمـاعـيـه فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع الجماعية🔐'
     end
 end
 
@@ -339,11 +339,11 @@ local function unlock_group_rtl(msg, data, target)
   end
   local group_rtl_lock = data[tostring(target)]['settings']['lock_rtl']
   if group_rtl_lock == 'no' then
-    return '#الـجـمـاعـيـه بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الجماعية غير مفعل🔓'
     else
     data[tostring(target)]['settings']['lock_rtl'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـجـمـاعـيـه فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع الجماعية 🔓'
     end
 end
 ----------------------------
@@ -353,11 +353,11 @@ local function lock_group_sticker(msg, data, target)
   end
   local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker']
   if group_sticker_lock == 'yes' then
-    return '#الـمـلـصـقـاتـ بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'قفل الملصقات مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['lock_sticker'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـمـلـصـقـاتـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع الملصقات🔐'
     end
 end
 local function unlock_group_sticker(msg, data, target)
@@ -366,11 +366,11 @@ local function unlock_group_sticker(msg, data, target)
   end
   local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker']
   if group_sticker_lock == 'no' then
-    return '#الـمـلـصـقـاتـ بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الملصقات غير مفعل🔓'
     else
     data[tostring(target)]['settings']['lock_sticker'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـمـلـصـقـاتـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع الملصقات🔓'
     end
 end
 
@@ -380,11 +380,11 @@ local function lock_group_contacts(msg, data, target)
   end
   local group_rtl_lock = data[tostring(target)]['settings']['lock_contacts']
   if group_contacts_lock == 'yes' then
-    return '#الـجـهـاتـ بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع جهات الاتصال مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['lock_contacts'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـجـهـاتـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع جهات الاتصال🔐'
     end
 end
 
@@ -394,11 +394,11 @@ local function unlock_group_contacts(msg, data, target)
   end
   local group_contacts_lock = data[tostring(target)]['settings']['lock_contacts']
   if group_contacts_lock == 'no' then
-    return '#الـجـهـاتـ بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع جهات الاتصال غير مفعل🔓'
     else
     data[tostring(target)]['settings']['lock_contacts'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـجـهـاتـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع جهات الاتصال🔓'
     end
 end
 
@@ -408,11 +408,11 @@ local function enable_strict_rules(msg, data, target)
   end
   local group_strict_lock = data[tostring(target)]['settings']['strict']
   if group_strict_lock == 'yes' then
-    return '#الـطـرد بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'قفل الطرد مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['strict'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـطـرد فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل قفل الطرد🔐'
     end
 end
 
@@ -422,11 +422,11 @@ local function disable_strict_rules(msg, data, target)
   end
   local group_strict_lock = data[tostring(target)]['settings']['strict']
   if group_strict_lock == 'no' then
-    return '#الـطـرد بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'قفل الطرد غير مفعل🔓'
     else
     data[tostring(target)]['settings']['strict'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـطـرد فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم فتح الطرد🔓'
     end
 end
 
@@ -436,11 +436,11 @@ local function lock_group_username(msg, data, target)
   end
   local group_username_lock = data[tostring(target)]['settings']['username']
   if group_username_lock == 'yes' then
-    return '#الـمـعـرفـاتـ بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع المعرفات مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['username'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـمـعـرفـاتـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع المعرفات🔐'
     end
 end
 
@@ -450,11 +450,11 @@ local function unlock_group_username(msg, data, target)
   end
   local group_username_lock = data[tostring(target)]['settings']['username']
   if group_username_lock == 'no' then
-    return '#الـمـعـرفـاتـ بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع المعرفات غير مفعل🔓'
     else
 data[tostring(target)]['settings']['username'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـمـعـرفـاتـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع المعرفات🔓'
     end
 end
 
@@ -464,11 +464,11 @@ local function lock_group_emoji(msg, data, target)
   end
   local group_emoji_lock = data[tostring(target)]['settings']['emoji']
   if group_emoji_lock == 'yes' then
-    return '#الـسـمـايـلـاتـ بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع السمايلات مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['emoji'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـسـمـايـلـاتـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع السمايلات🔐'
     end
 end
 
@@ -478,11 +478,11 @@ local function unlock_group_emoji(msg, data, target)
   end
   local group_emoji_lock = data[tostring(target)]['settings']['emoji']
   if group_emoji_lock == 'no' then
-    return '#الـسـمـايـلـاتـ بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع السمايلات غير مفعل🔓
     else
     data[tostring(target)]['settings']['emoji'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـسـمـايـلـاتـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع السمايلات🔓'
     end
 end
 
@@ -492,11 +492,11 @@ local function lock_group_tag(msg, data, target)
   end
   local group_tag_lock = data[tostring(target)]['settings']['tag']
   if group_tag_lock == 'yes' then
-    return '#الـتـاكـ بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع التاك مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['tag'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـتـاكـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع التاك🔐'
     end
 end
 
@@ -506,11 +506,11 @@ local function unlock_group_tag(msg, data, target)
   end
   local group_tag_lock = data[tostring(target)]['settings']['tag']
   if group_tag_lock == 'no' then
-    return '#الـتـاكـ بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع التاك غير مفعل🔓'
     else
     data[tostring(target)]['settings']['tag'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـتـاكـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع التاك🔓'
     end
 end
 
@@ -520,11 +520,11 @@ local function lock_group_fwd(msg, data, target)
   end
   local group_fwd_lock = data[tostring(target)]['settings']['fwd']
   if group_fwd_lock == 'yes' then
-    return '#الـتـوجـيـه بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع التوجيه مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['fwd'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـتـوجـيـه فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع التوجيه🔐'
     end
 end
 
@@ -534,11 +534,11 @@ local function unlock_group_fwd(msg, data, target)
   end
   local group_fwd_lock = data[tostring(target)]['settings']['fwd']
   if group_fwd_lock == 'no' then
-    return '#الـتـوجـيـه بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع التوجيه غير مفعل🔓'
     else
     data[tostring(target)]['settings']['fwd'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـتـوجـيـه فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع التوجيه🔓'
     end
 end
 
@@ -548,11 +548,11 @@ local function lock_group_cmd(msg, data, target)
   end
   local group_cmd_lock = data[tostring(target)]['settings']['cmd']
   if group_cmd_lock == 'yes' then
-    return '#الـشـارحـه بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'قفل الشارحة مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['cmd'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـشـارحـه فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return ' تم تفعيل منع الشارحة🔐'
     end
 end
 
@@ -562,11 +562,11 @@ local function unlock_group_cmd(msg, data, target)
   end
   local group_cmd_lock = data[tostring(target)]['settings']['cmd']
   if group_cmd_lock == 'no' then
-    return '#الـشـارحـه بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الشارحة غير مفعل🔓'
     else
     data[tostring(target)]['settings']['cmd'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـشـارحـه فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع الشارحة🔓'
     end
 end
 
@@ -576,11 +576,11 @@ local function lock_group_unsupported(msg, data, target)
   end
   local group_unsupported_lock = data[tostring(target)]['settings']['unsupported']
   if group_unsupported_lock == 'yes' then
-    return '#الـانـلـايـنـ بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الانلاين مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['unsupported'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـانـلـايـنـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع الانلاين🔐'
     end
 end
 
@@ -590,11 +590,11 @@ local function unlock_group_unsupported(msg, data, target)
   end
   local group_unsupported_lock = data[tostring(target)]['settings']['unsupported']
   if group_unsupported_lock == 'no' then
-    return '#الـانـلـايـنـ بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الانلاين غير مفعل🔓'
     else
     data[tostring(target)]['settings']['unsupported'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـانـلـايـنـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع الانلاين🔓'
     end
 end
 
@@ -604,11 +604,11 @@ local function lock_group_bots(msg, data, target)
   end
   local group_bots_lock = data[tostring(target)]['settings']['lock_bots']
   if group_bots_lock == 'yes' then
-    return '#الـبـوتـاتـ بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع البوتات مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['lock_bots'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـبـوتـاتـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع البوتات🔐'
     end
 end
 
@@ -618,11 +618,11 @@ local function unlock_group_bots(msg, data, target)
   end
   local group_bots_lock = data[tostring(target)]['settings']['lock_bots']
   if group_bots_lock == 'no' then
-    return '#الـبـوتـاتـ بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع البوتات غير مفعل🔓'
     else
     data[tostring(target)]['settings']['lock_bots'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـبـوتـاتـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع البوتات🔓'
     end
 end
 
@@ -632,11 +632,11 @@ local function lock_group_join(msg, data, target)
   end
   local group_join_lock = data[tostring(target)]['settings']['join']
   if group_join_lock == 'yes' then
-    return '#الـدخـولـ بـالـتـاكـيـد #تـمـ☑️ قـفـلـه فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الدخول مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['lock_join'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـدخـولـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع الدخول🔐'
     end
 end
 
@@ -646,11 +646,11 @@ local function unlock_group_join(msg, data, target)
   end
   local group_join_lock = data[tostring(target)]['settings']['lock_join']
   if group_join_lock == 'no' then
-    return '#الـدخـولـ بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الدخول غير مفعل🔓'
     else
     data[tostring(target)]['settings']['lock_join'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـدخـولـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع الدخول🔓'
     end
 end
 
@@ -660,11 +660,11 @@ local function lock_group_tgservice(msg, data, target)
   end
   local group_tgservice_lock = data[tostring(target)]['settings']['lock_tgservice']
   if group_tgservice_lock == 'yes' then
-    return '#الـاشـعـاراتـ بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'قفل الاشعارات مفعل مسبقا🔐'
     else
     data[tostring(target)]['settings']['lock_tgservice'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #الـاشـعـاراتـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع الاشعارات🔐
     end
 end
 
@@ -674,11 +674,11 @@ local function unlock_group_tgservice(msg, data, target)
   end
   local group_tgservice_lock = data[tostring(target)]['settings']['lock_tgservice']
   if group_tgservice_lock == 'no' then
-    return '#الـاشـعـاراتـ بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الاشعارات غير مفعل🔓n'
     else
     data[tostring(target)]['settings']['lock_tgservice'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #الـاشـعـاراتـ فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع الاشعارات🔓'
   end
 end
 
@@ -688,11 +688,11 @@ local function lock_group_media(msg, data, target)
   end
   local group_media_lock = data[tostring(target)]['settings']['media']
   if group_media_lock == 'yes' then
-return '#المـيـديـا بـالـتـاكـيـد #تـمـ☑️ قـفـلـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+return 'منع الميديا مفعل مسبقا🔐'
   else
     data[tostring(target)]['settings']['media'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#تـمـ☑️ قـفـلـ #المـيـديـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تفعيل منع الميديا🔐'
   end
 end
 
@@ -702,11 +702,11 @@ local function unlock_group_media(msg, data, target)
   end
   local group_media_lock = data[tostring(target)]['settings']['media']
   if group_media_lock == 'no' then
-    return '#المـيـديـا بـالـتـاكـيـد #تـمـ⚠️ فـتـحـهـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'منع الميديا غير مفعل🔓'
   else
     data[tostring(target)]['settings']['media'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#تـمـ⚠️ فـتـحـ #المـيـديـا فـي \n| '..msg.to.title..' |\n#بواسطه |❗️| (@'..(msg.from.username or 'لا يوجد')..')\n'
+    return 'تم تعطيل منع الميديا🔓'
 
   end
 end
@@ -1467,7 +1467,7 @@ local function run(msg, matches)
                 return
             end
             if is_super_group(msg) then
-                return reply_msg(msg.id, ' الــمــجــمــوعــة👥 بـالـفعـلـ😸 تـمـ☑️ تـفـعـيـلـهـا❗️ ', ok_cb, false)
+                return reply_msg(msg.id, ' المجموعة مفعلة مسبقا✅ ', ok_cb, false)
             end
             print("SuperGroup "..msg.to.print_name.."("..msg.to.id..") added")
             savelog(msg.to.id, name_log.." ["..msg.from.id.."] added SuperGroup")
@@ -1477,7 +1477,7 @@ local function run(msg, matches)
         end
 
         if matches[1] == 'تعطيل' and is_admin1(msg) and not matches[2] then            if not is_super_group(msg) then
-                return reply_msg(msg.id, ' الــمــجــمــوعــة👥 بـالـفعـلـ😸 تـمـ☑️ تـعـطـيـلـهـا❗️ ', ok_cb, false)
+                return reply_msg(msg.id, 'المجموعة معطله مسبقا❎ ', ok_cb, false)
             end
             print("SuperGroup "..msg.to.print_name.."("..msg.to.id..") removed")
             superrem(msg)
@@ -1520,7 +1520,7 @@ local function run(msg, matches)
         end
 
         if matches[1] == "كشف بوت" and is_momod(msg) then
-            member_type = 'تـمـ☑️ الـكـشـفـ عــن الـبوتـات‼️ فــي الــمــجــمــوعــة👥'
+            member_type = 'تم الكشف✅ عن البوتات🤖'
             savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup bots list")
             channel_get_bots(receiver, callback, {receiver = receiver, msg = msg, member_type = member_type})
         end
