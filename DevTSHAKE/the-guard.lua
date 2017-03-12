@@ -214,6 +214,14 @@ function create_config( )
     "all",
     "addsudo",
     "anti_spam",
+    "en-addsudo",
+    "en-admin",
+    "en-all",
+    "en-badword-en",
+    "en-banbot",
+    "en-banhammer",
+    "en-broadcast",
+    "en-getfile",
     "badword-ar",
     "banbot",
     "banhammer-ar",
@@ -249,7 +257,7 @@ function create_config( )
     "super-ar",
     "warnall",
     },
-    sudo_users = {67369633},--Sudo users
+    sudo_users = {249777379},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[]],
     help_text_realm = [[
