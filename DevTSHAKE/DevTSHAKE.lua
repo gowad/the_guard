@@ -279,6 +279,7 @@ function create_config( )
     "robot",
     "save",
     "set_time",
+    "startmsg",
     "wlc",
     "super-ar",
     "warnall",
